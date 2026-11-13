@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WAFLUN - Dashboard</title>
+
+    <link rel="stylesheet" href="bootstrap-5.3.8-dist/css/bootstrap.min.css">
+    <link rel="icon" type="image/png" href="logo.jpg">
+
+    <style>
+        body {
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+            background-color: #f8fafc;
+            color: #0f172a;
+        }
+
+        .navbar {
+            background-color: #0d233a !important;
+        }
+
+        .navbar-logo {
+            height: 40px;
+            width: 40px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin-right: 12px;
+        }
+
+        .sidebar {
+            background-color: #ffffff;
+            border-right: 1px solid #e2e8f0;
+            min-height: calc(100vh - 73px);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 20px 15px;
+        }
+
+        .sidebar .nav-link {
+            color: #334155;
+            font-weight: 500;
+            padding: 10px 15px;
+            border-radius: 8px;
+            margin-bottom: 5px;
+            transition: all 0.2s ease;
+        }
+
+        .sidebar .nav-link:hover, .sidebar .nav-link.active {
+            background-color: #f1f5f9;
+            color: #0d233a;
+        }
+
+        .account-box {
+            background-color: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 10px;
+            padding: 12px;
+            text-align: center;
+        }
+
+        .card {
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+        }
+
+        .action-link {
+            font-size: 0.75rem;
+            text-decoration: none;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <nav class="navbar navbar-dark navbar-expand-lg py-3 shadow-sm">
+        <div class="container-fluid px-4 d-flex align-items-center">
+            <div class="d-flex align-items-center">
+                <img src="logo.jpg" alt="Logo" class="navbar-logo">
+                <a class="navbar-brand fw-bold fs-5 mb-0" href="#">WAFLUN - Dashboard</a>
+            </div>
+            <div class="d-flex align-items-center ms-auto">
+                <span class="text-light me-3 small">Welcome, <strong class="text-white">godzilla</strong> (Registrar)</span>
+                <a href="class_program_matrix.html" class="btn btn-light btn-sm fw-semibold px-3 rounded-pill me-2">Class Program Matrix</a>
+                <a href="index.html" class="btn btn-outline-light btn-sm rounded-pill px-3">Logout</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Wrapper with Sidebar and Content -->
+    <div class="container-fluid">
+        <div class="row">
+            
+            <!-- Sidebar Section -->
+            <nav class="col-md-3 col-lg-2 d-md-block sidebar collapse">
+                <div>
+                    <h6 class="sidebar-heading px-3 mt-4 mb-2 text-muted text-uppercase fs-7 fw-bold">Navigation</h6>
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="admin_dashboard.html">
+                                Dashboard / Load Assignment
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="class_program.html">
+                                Class Program
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="teachers.html">
+                                Manage Teachers
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="subjects.html">
+                                Manage Subjects
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Account Name & Info at the bottom of the sidebar section -->
+                <div class="account-box mt-4">
+                    <div class="small text-muted mb-1">Logged in Account</div>
+                    <div class="fw-bold text-dark mb-1">godzilla</div>
+                    <span class="badge bg-primary text-white rounded-pill px-2 py-1 small">Registrar</span>
+                </div>
+            </nav>
+
+            <!-- Main Content Area -->
+            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 py-4">
+
+                <!-- Add Faculty Load Assignment Card -->
+                <div class="card shadow-sm mb-4">
+                    <div class="card-body p-4">
+                        <h4 class="fw-bold mb-4">Add Faculty Load Assignment</h4>
+                        
+                        <form onsubmit="event.preventDefault(); alert('Assignment saved successfully (Static Preview)!');">
+                            <div class="row g-3">
+                                <!-- Teacher Name -->
+                                <div class="col-md-4">
+                                    <div class="d-flex justify-content-between align-items-center mb-1">
+                                        <label class="form-label fw-semibold small text-muted mb-0">Teacher Name</label>
+                                        <div>
+                                            <a href="#" class="text-primary action-link">+ Add</a>
+                                            <a href="#" class="text-danger action-link ms-1">Manage</a>
+                                        </div>
+                                    </div>
+                                    <select class="form-select" name="teacher_id" required>
+                                        <option value="">Select Teacher</option>
+                                    </select>
+                                </div>
+
+                                <!-- School Year -->
+                                <div class="col-md-4">
+                                    <label class="form-label fw-semibold small text-muted mb-1">School Year</label>
+                                    <select class="form-select" name="school_year" required>
+                                        <option value="">Select School Year</option>
+                                        <option value="2026-2027">2026-2027</option>
+                                        <option value="2025-2026">2025-2026</option>
+                                    </select>
+                                </div>
+
+                                <!-- Term / Semester -->
+                                <div class="col-md-4">
+                                    <div class="d-flex justify-content-between align-items-center mb-1">
+                                        <label class="form-label fw-semibold small text-muted mb-0">Term / Semester</label>
+                                        <div>
+                                            <a href="#" class="text-primary action-link">+ Add</a>
+                                            <a href="#" class="text-danger action-link ms-1">Manage</a>
+                                        </div>
+                                    </div>
+                                    <select class="form-select" name="term" required>
+                                        <option value="">Select Term</option>
+                                        <option value="1st Semester">1st Semester</option>
+                                        <option value="2nd Semester">2nd Semester</option>
+                                    </select>
+                                </div>
+
+                                <!-- Grade Level -->
+                                <div class="col-md-3">
+                                    <label class="form-label fw-semibold small text-muted mb-1">Grade Level</label>
+                                    <select class="form-select" name="grade_level" required>
+                                        <option value="">Select Grade Level</option>
+                                        <option value="Grade 11">Grade 11</option>
+                                        <option value="Grade 12">Grade 12</option>
+                                    </select>
+                                </div>
+
+                                <!-- Track -->
+                                <div class="col-md-3">
+                                    <label class="form-label fw-semibold small text-muted mb-1">Track</label>
+                                    <select class="form-select" name="track" required>
+                                        <option value="">Select Track</option>
+                                        <option value="Academic">Academic</option>
+                                        <option value="TVL">TVL</option>
+                                    </select>
+                                </div>
+
+                                <!-- Strand -->
+                                <div class="col-md-3">
+                                    <div class="d-flex justify-content-between align-items-center mb-1">
+                                        <label class="form-label fw-semibold small text-muted mb-0">Strand</label>
+                                        <div>
+                                            <a href="#" class="text-primary action-link">+ Add</a>
+                                            <a href="#" class="text-danger action-link ms-1">Manage</a>
+                                        </div>
+                                    </div>
+                                    <select class="form-select" name="strand" required>
+                                        <option value="">Select Strand</option>
+                                        <option value="STEM">STEM</option>
+                                        <option value="ABM">ABM</option>
+                                    </select>
+                                </div>
+
+                                <!-- Section -->
+                                <div class="col-md-3">
+                                    <div class="d-flex justify-content-between align-items-center mb-1">
+                                        <label class="form-label fw-semibold small text-muted mb-0">Section</label>
+                                        <div>
+                                            <a href="#" class="text-primary action-link">+ Add</a>
+                                            <a href="#" class="text-danger action-link ms-1">Manage</a>
+                                        </div>
+                                    </div>
+                                    <select class="form-select" name="section" required>
+                                        <option value="">Select Section</option>
+                                        <option value="Section A">Section A</option>
+                                        <option value="Section B">Section B</option>
+                                    </select>
+                                </div>
+
+                                <!-- Subject Title -->
+                                <div class="col-md-4">
+                                    <div class="d-flex justify-content-between align-items-center mb-1">
+                                        <label class="form-label fw-semibold small text-muted mb-0">Subject Title</label>
+                                        <div>
+                                            <a href="#" class="text-primary action-link">+ Add</a>
+                                            <a href="#" class="text-danger action-link ms-1">Manage</a>
+                                        </div>
+                                    </div>
+                                    <select class="form-select" name="subject_id" required>
+                                        <option value="">Select Subject</option>
+                                    </select>
+                                </div>
+
+                                <!-- Start Time -->
+                                <div class="col-md-3">
+                                    <label class="form-label fw-semibold small text-muted mb-1">Start Time</label>
+                                    <input type="time" class="form-control" name="start_time" required>
+                                </div>
+
+                                <!-- End Time -->
+                                <div class="col-md-3">
+                                    <label class="form-label fw-semibold small text-muted mb-1">End Time</label>
+                                    <input type="time" class="form-control" name="end_time" required>
+                                </div>
+
+                                <!-- Day Pattern -->
+                                <div class="col-md-2">
+                                    <div class="d-flex justify-content-between align-items-center mb-1">
+                                        <label class="form-label fw-semibold small text-muted mb-0">Day Pattern</label>
+                                        <div>
+                                            <a href="#" class="text-primary action-link">+ Add</a>
+                                            <a href="#" class="text-danger action-link ms-1">Manage</a>
+                                        </div>
+                                    </div>
+                                    <select class="form-select" name="day_pattern" required>
+                                        <option value="">Select Days</option>
+                                        <option value="MWF">MWF</option>
+                                        <option value="TTH">TTH</option>
+                                        <option value="Daily">Daily</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="mt-4 text-end">
+                                <button type="submit" class="btn btn-primary px-4 py-2 fw-semibold shadow-sm">Save Assignment</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Assigned Teachers Schedule Summary Section -->
+                <div class="card shadow-sm">
+                    <div class="card-body p-4">
+                        <h5 class="fw-bold mb-3">Assigned Teachers Schedule Summary</h5>
+                        <div class="table-responsive">
+                            <table class="table table-hover align-middle mb-0">
+                                <thead>
+                                    <tr>
+                                        <th>Teacher Name</th>
+                                        <th>Total Assigned Loads</th>
+                                        <th class="text-end">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td colspan="3" class="text-center text-muted py-4">No schedule summaries recorded yet.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+            </main>
+        </div>
+    </div>
+
+    <script src="bootstrap-5.3.8-dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

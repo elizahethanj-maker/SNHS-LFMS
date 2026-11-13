@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SNHS LFMS - Landing Page</title>
+
+    <link rel="stylesheet" href="bootstrap-5.3.8-dist/css/bootstrap.min.css">
+    <link rel="icon" type="image/png" href="logo.jpg">
+
+    <style>
+        body {
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+        }
+
+        .hero-section {
+            min-height: 100vh;
+            background: linear-gradient(rgba(15, 23, 42, 0.75), rgba(15, 23, 42, 0.75)), 
+                        url('campus.jpg') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #ffffff;
+            padding: 20px;
+        }
+
+        .hero-card {
+            max-width: 650px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 16px;
+            padding: 40px 24px;
+        }
+
+        .auth-modal .modal-content {
+            border-radius: 16px;
+            border: none;
+        }
+
+        .auth-modal .nav-pills {
+            background-color: #f1f5f9;
+            padding: 4px;
+            border-radius: 10px;
+        }
+
+        .auth-modal .nav-link {
+            color: #64748b;
+            font-weight: 600;
+            border-radius: 8px;
+        }
+
+        .auth-modal .nav-link.active {
+            background-color: #ffffff;
+            color: #0f172a;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+        }
+    </style>
+</head>
+<body>
+
+    <section class="hero-section">
+        <div class="hero-card shadow-lg">
+            <h1 class="display-4 fw-bold mb-3">SNHS LFMS</h1>
+            <p class="lead text-light opacity-90 mb-4">Welcome to Santiago National High School Lost and Found Management System[cite: 4].</p>
+            <button class="btn btn-primary btn-lg px-4 rounded-pill fw-semibold shadow-sm" data-bs-toggle="modal" data-bs-target="#authModal">
+                Get Started
+            </button>
+        </div>
+    </section>
+
+    <!-- Login & Register Modal -->
+    <div class="modal fade auth-modal" id="authModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content p-4">
+                <div class="modal-header border-0 pb-0">
+                    <ul class="nav nav-pills nav-justified w-100" id="authTabs" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link active" id="login-tab" data-bs-toggle="pill" data-bs-target="#login" type="button" role="tab">Login</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="register-tab" data-bs-toggle="pill" data-bs-target="#register" type="button" role="tab">Register</button>
+                        </li>
+                    </ul>
+                    <button type="button" class="btn-close ms-2" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <div class="modal-body pt-4">
+                    <div class="tab-content" id="authTabsContent">
+                        
+                        <!-- Login Form -->
+                        <div class="tab-pane fade show active" id="login" role="tabpanel">
+                            <form id="loginForm">
+                                <div class="mb-3 text-start">
+                                    <label for="loginRole" class="form-label fw-semibold text-dark">Select Role</label>
+                                    <select class="form-select py-2" id="loginRole" name="role" required>
+                                        <option value="student" selected>Student</option>
+                                        <option value="admin">Admin</option>
+                                    </select>
+                                </div>
+                                <div class="mb-3 text-start">
+                                    <label for="loginUsername" class="form-label fw-semibold text-dark">Username</label>
+                                    <input type="text" class="form-control py-2" id="loginUsername" name="username" placeholder="Enter username" required>
+                                </div>
+                                <div class="mb-3 text-start">
+                                    <label for="loginPassword" class="form-label fw-semibold text-dark">Password</label>
+                                    <input type="password" class="form-control py-2" id="loginPassword" name="password" placeholder="••••••••" required>
+                                </div>
+                                <button type="submit" class="btn btn-primary w-100 py-2 mt-2 fw-semibold rounded-3">Sign In</button>
+                            </form>
+                        </div>
+
+                        <!-- Register Form -->
+                        <div class="tab-pane fade" id="register" role="tabpanel">
+                            <form id="registerForm">
+                                <div class="mb-3 text-start">
+                                    <label for="regRole" class="form-label fw-semibold text-dark">Register As</label>
+                                    <select class="form-select py-2" id="regRole" name="role" required>
+                                        <option value="student" selected>Student</option>
+                                        <option value="admin">Admin</option>
+                                    </select>
+                                </div>
+                                <div class="mb-3 text-start">
+                                    <label for="regFullName" class="form-label fw-semibold text-dark">Full Name</label>
+                                    <input type="text" class="form-control py-2" id="regFullName" name="fullName" placeholder="Peter Parker" required>
+                                </div>
+                                <div class="mb-3 text-start">
+                                    <label for="regUsername" class="form-label fw-semibold text-dark">Username</label>
+                                    <input type="text" class="form-control py-2" id="regUsername" name="username" placeholder="peter" required>
+                                </div>
+                                <div class="mb-3 text-start">
+                                    <label for="regPassword" class="form-label fw-semibold text-dark">Password</label>
+                                    <input type="password" class="form-control py-2" id="regPassword" name="password" placeholder="••••••••" required>
+                                </div>
+                                <button type="submit" class="btn btn-success w-100 py-2 mt-2 fw-semibold rounded-3">Create Account</button>
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="bootstrap-5.3.8-dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Firebase SDK & Handlers (Using dummy emails generated from usernames behind the scenes) -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+        import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
+
+        const firebaseConfig = {
+  apiKey: "AIzaSyB8FHeAvdfMXh5KlTVg-KPrrAdsJ-BHqDk",
+  authDomain: "snhs-lfms.firebaseapp.com",
+  projectId: "snhs-lfms",
+  storageBucket: "snhs-lfms.firebasestorage.app",
+  messagingSenderId: "323142579434",
+  appId: "1:323142579434:web:4356bd1cc9de610b105393",
+  measurementId: "G-4040PK793K"
+};
+
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+
+        // Firebase requires email format for auth, so we convert username to a unique internal email format automatically
+        const formatEmail = (username) => `${username.trim().toLowerCase()}@snhs-lfms.local`;
+
+        document.getElementById('loginForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const username = document.getElementById('loginUsername').value;
+            const password = document.getElementById('loginPassword').value;
+            const role = document.getElementById('loginRole').value;
+
+            try {
+                await signInWithEmailAndPassword(auth, formatEmail(username), password);
+                window.location.href = role === 'admin' ? 'admin_dashboard.html' : 'student_dashboard.html';
+            } catch (error) {
+                alert("Login failed: " + error.message);
+            }
+        });
+
+        document.getElementById('registerForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const username = document.getElementById('regUsername').value;
+            const password = document.getElementById('regPassword').value;
+            const role = document.getElementById('regRole').value;
+
+            try {
+                await createUserWithEmailAndPassword(auth, formatEmail(username), password);
+                alert("Account created successfully!");
+                window.location.href = role === 'admin' ? 'admin_dashboard.html' : 'student_dashboard.html';
+            } catch (error) {
+                alert("Registration failed: " + error.message);
+            }
+        });
+    </script>
+</body>
+</html>
